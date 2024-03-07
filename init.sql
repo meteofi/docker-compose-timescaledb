@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS airtemperature (
     value real
 );
 CREATE INDEX IF NOT EXISTS airtemperature_gix ON airtemperature USING GIST (the_geom);
-CREATE UNIQUE INDEX IF NOT EXISTS airtemperature_uqix ON lightning (wigos_id,"time");
+CREATE UNIQUE INDEX IF NOT EXISTS airtemperature_uqix ON airtemperaturef (wigos_id,"time");
 SELECT create_hypertable('airtemperature', by_range('time'));
 CREATE TABLE IF NOT EXISTS stations (
     the_geom geometry(Point,4326),
