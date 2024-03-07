@@ -13,6 +13,7 @@ services:
       - 5433:5432
     volumes:
       - geoserver-lightning-db-storage:/home/postgres/pgdata/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - traefik-network
 
