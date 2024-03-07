@@ -10,7 +10,7 @@ services:
         POSTGRES_USER: ${DB_USER:-meteo}
         POSTGRES_PASSWORD: ${DB_PASSWORD:-meteo}
     ports:
-      - 5433:5432
+      - localhost:5433:5432
     volumes:
       - geoserver-lightning-db-storage:/home/postgres/pgdata/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
