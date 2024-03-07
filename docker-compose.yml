@@ -12,13 +12,13 @@ services:
     ports:
       - 127.0.0.1:5433:5432
     volumes:
-      - geoserver-lightning-db-storage:/home/postgres/pgdata/data
+      - timescale-weather-db-storage:/home/postgres/pgdata/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - traefik-network
 
 volumes:
-  geoserver-lightning-db-storage:
+  timescale-weather-db-storage:
 
 networks:
     traefik-network:
