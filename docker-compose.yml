@@ -6,7 +6,7 @@ services:
     container_name: geoserver-lightning-db
     restart: unless-stopped
     environment:
-        POSTGRES_DB: lightning
+        POSTGRES_DB: weather
         POSTGRES_USER: ${DB_USER:-meteo}
         POSTGRES_PASSWORD: ${DB_PASSWORD:-meteo}
     ports:
