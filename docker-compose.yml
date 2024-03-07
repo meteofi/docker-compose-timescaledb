@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  geoserver-lightning-db:
+    image: timescale/timescaledb-ha:pg14-ts2.13
+    container_name: geoserver-lightning-db
+    restart: unless-stopped
+    environment:
+        POSTGRES_DB: lightning
+        POSTGRES_USER: ${DB_USER:-meteo}
+        POSTGRES_PASSWORD: ${DB_PASSWORD:-meteo}
+    ports:
+      - 5433:5432
+    volumes:
+      - geoserver-lightning-db-storage:/home/postgres/pgdata/data
+    networks:
+      - traefik-network
+
+volumes:
+  geoserver-lightning-db-storage:
+
+networks:
+    traefik-network:
+      external: true
