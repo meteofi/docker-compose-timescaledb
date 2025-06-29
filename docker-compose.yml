@@ -3,6 +3,7 @@ services:
 
   geoserver-lightning-db:
     image: timescale/timescaledb-ha:pg14-ts2.13
+    shm_size: 512m
     container_name: geoserver-lightning-db
     restart: unless-stopped
     environment:
